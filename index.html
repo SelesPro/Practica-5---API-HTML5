@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 5 - API's de HTML5</title>
+
+        <style>
+          body {
+            background: black;
+            color:#CCCCCC;
+          }
+          #c2 {
+            background-image: url(foo.png);
+            background-repeat: no-repeat;
+          }
+          div {
+            float: left;
+            border :1px solid #444444;
+            padding:10px;
+            margin: 10px;
+            background:#3B3B3B;
+          }
+        </style>
+        <script type="text/javascript;version=1.8" src="main.js"></script>
+</head>
+<body>
+    <html>
+
+
+  <body onload="processor.doLoad()">
+    <div id="divformulario">
+        <section id="secformulario">
+            <form name="formulario">
+                <p>Archivos: <br> <input type="file" name="archivos" id="archivos"></p>
+            </form>
+        </section>
+      
+    </div>
+    <div>
+        <button
+        onclick="document.getElementById('video').play();">Reproducir</button>
+        <button
+        onclick="document.getElementById('video').pause();">Pausa</button>
+        <button onclick="document.getElementById('video').volume +=
+        0.1;">Subir Volumen</button>
+        <button onclick="document.getElementById('video').volume -=
+        0.1;">Bajar Volumen</button>
+        </div>
+
+  </body>
+</html>
+    
+</body>
+</html>

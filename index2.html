@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- see https://leightley.com/gist-html5-video-player-with-javascript/ -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Práctica 5 - HTML5 API Vide</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 54px;
+      }
+
+       video {
+      width: 400px;
+      height: 400px;
+    } 
+    div
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+    video{
+      padding-top: 30px;
+    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Práctica 4 - API HTML5</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md text-center">
+          <div id="message"></div>
+          <video controls autoplay></video>
+          <ul class="list-unstyled">
+            <li><input type="file" accept="video/*" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function localFileVideoPlayer() {
+        'use strict'
+        var URL = window.URL || window.webkitURL
+
+        var playSelectedFile = function (event) {
+          var file = this.files[0]
+          var type = file.type
+          var videoNode = document.querySelector('video')
+          var canPlay = videoNode.canPlayType(type)
+          var isError = canPlay === 'no'
+
+          if (isError) {
+            return
+          }
+
+          var fileURL = URL.createObjectURL(file)
+          videoNode.src = fileURL
+        }
+        var inputNode = document.querySelector('input')
+        inputNode.addEventListener('change', playSelectedFile, false)
+      })()
+    </script>
+  </body>
+
+</html>
